@@ -14,7 +14,7 @@ public class FCMNotifier {
     String title;
     String msg;
     String fcmtoken;
-    FCMNotifier(String fcmkey, String fcmtoken)
+    public FCMNotifier(String fcmkey, String fcmtoken)
     {
         this.fcmkey=fcmkey;
         this.fcmtoken=fcmtoken;
