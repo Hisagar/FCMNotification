@@ -28,8 +28,9 @@ public class FCMNotifier {
         this.msg = msg;
     }
 
-    public void send()
+    public boolean send()
     {
+        Boolean isSend=false;
         if(!fcmkey.isEmpty())
         {
             if(!fcmtoken.isEmpty())
@@ -38,11 +39,18 @@ public class FCMNotifier {
                 {
                     if(!title.isEmpty())
                     {
-                        new Notify().execute();
+                        AsyncTask asyncTask=new Notify().execute();
+                        if(!asyncTask.isCancelled())
+                        {
+                            isSend=true;
+                        }
+
                     }
                 }
             }
         }
+
+        return isSend;
 
     }
 
